@@ -21,12 +21,10 @@ import java.util.ArrayList;
 
 public class guiController {
     @FXML
-    private TextField studentUsernameInput,landlordUsernameInput;
+    private TextField studentUsernameInput;
     @FXML
-    private PasswordField studentPasswordInput, landlordPasswordInput;
+    private PasswordField studentPasswordInput;
 
-    @FXML
-    private Button studentSignIn, landlordSignIn, signOutButton;
 
     dbTest dbStream = new dbTest();
     private ArrayList<Student> students;
@@ -161,9 +159,14 @@ public class guiController {
     }
     @FXML
     private TextField  QRCodeTF;
+    @FXML
     private TextField applianceIDTF;
+    @FXML
     private TextField consumptionTF;
+    @FXML
     private TextField efficiencyTF;
+    @FXML
+    private Label addApplianceLabel;
 
     public void addAppliance(ActionEvent event){
         String applianceID, consumption, efficiency, QRCode;
@@ -172,6 +175,33 @@ public class guiController {
         consumption = consumptionTF.getText();
         efficiency = efficiencyTF.getText();
         QRCode = QRCodeTF.getText();
+
+        if(appliancePresent(applianceID)==true){
+            setAddApplianceStatus("The database already contains this appliance!");
+        }
+        else{
+            Appliance newAppliance = new Appliance(applianceID, consumption, efficiency, QRCode);
+            dbStream.addApplianceToDatabase(newAppliance);
+
+            setAddApplianceStatus("The appliance is added to the database!");
+
+        }
+
+    }
+
+    public boolean appliancePresent(String applianceID){
+        for(Appliance newAppliance:appliances){
+            if(newAppliance.getApplianceID().equals(applianceID)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public void setAddApplianceStatus(String output){
+        addApplianceLabel.setText(output);
 
     }
 

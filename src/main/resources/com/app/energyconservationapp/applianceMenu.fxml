@@ -7,23 +7,23 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="343.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.energyconservationapp.guiController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="466.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.energyconservationapp.guiController">
   <tabs>
     <Tab text="Add Appliance">
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <TextField layoutX="153.0" layoutY="118.0" />
-                  <TextField layoutX="153.0" layoutY="160.0" />
-                  <TextField layoutX="153.0" layoutY="205.0" />
+                  <TextField fx:id="applianceIDTF" layoutX="181.0" layoutY="118.0" />
+                  <TextField fx:id="consumptionTF" layoutX="181.0" layoutY="160.0" />
+                  <TextField fx:id="efficiencyTF" layoutX="181.0" layoutY="205.0" />
                   <Label layoutX="59.0" layoutY="122.0" text="Appliance ID:" />
                   <Label layoutX="59.0" layoutY="164.0" text="Consumption:" />
                   <Label layoutX="59.0" layoutY="209.0" text="Efficiency:" />
                   <Label layoutX="59.0" layoutY="251.0" text="QR-code:" />
-                  <TextField fx:id="QRCodeTF" layoutX="153.0" layoutY="247.0" />
-                  <Label layoutX="139.0" layoutY="54.0" text="Label" />
+                  <TextField fx:id="QRCodeTF" layoutX="181.0" layoutY="247.0" />
+                  <Label fx:id="addApplianceLabel" layoutX="138.0" layoutY="58.0" text="Appliance is not yet added!" />
                   <Button layoutX="74.0" layoutY="303.0" mnemonicParsing="false" onAction="#backToStudentMenu" text="Back" />
-                  <Button layoutX="210.0" layoutY="303.0" mnemonicParsing="false" text="Add appliance" />
+                  <Button layoutX="210.0" layoutY="303.0" mnemonicParsing="false" onAction="#addAppliance" text="Add appliance" />
                </children>
             </AnchorPane>
          </content></Tab>
@@ -34,6 +34,26 @@
       <Tab text="Change Appliance">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab text="Info Appliance">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="103.0" layoutY="251.0" text="Appliance ID:" />
+                  <TextField layoutX="200.0" layoutY="247.0" />
+                  <Label layoutX="200.0" layoutY="76.0" text="No appliance chosen!" />
+                  <Label layoutX="200.0" layoutY="119.0" text="No appliance chosen!" />
+                  <Label layoutX="200.0" layoutY="159.0" text="No appliance chosen!" />
+                  <Label layoutX="97.0" layoutY="76.0" text="consumption:" />
+                  <Label layoutX="118.0" layoutY="119.0" text="Efficiency:" />
+                  <Label layoutX="118.0" layoutY="159.0" text="QR-Code:" />
+                  <Button layoutX="316.0" layoutY="306.0" mnemonicParsing="false" text="OK" />
+                  <Button layoutX="103.0" layoutY="306.0" mnemonicParsing="false" text="Back" />
+                  <Label layoutX="138.0" layoutY="202.0" text="Room:" />
+                  <Label layoutX="200.0" layoutY="202.0" text="No appliance chosen!" />
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
   </tabs>

@@ -166,6 +166,19 @@ public class dbTest {
         }
         return appliances;
     }
+    public void addApplianceToDatabase(Appliance appliance){
+        try {
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            String query ="insert into appliances (null, '"+appliance.getApplianceID()+"', '"+appliance.getConsumption()+"', '"+appliance.getEfficiency()+"', '"+appliance.getQRCode()+"')";
+            PreparedStatement stm = connection.prepareStatement(query);
+
+
+        } catch (SQLException e) {
+            System.out.println("FAIL");
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<BelongsTo> databaseReadBelongsTo(){
         ArrayList<BelongsTo> belongsToArrayList = new ArrayList<>();
