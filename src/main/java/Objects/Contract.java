@@ -2,40 +2,35 @@ package Objects;
 
 public class Contract {
 
-    private int contractNR;
-    private Student tenant;
-    private Landlord owner;
-    private static int ID = 0;
+    private String studentID, landlordID;
 
-    public Contract(Student student, Landlord landlord){
-        this.tenant = student;
-        this.owner = landlord;
-        this.contractNR = ID+1;
-        ID++;
+    public Contract(String studentID, String landlordID) {
+        this.studentID = studentID;
+        this.landlordID = landlordID;
     }
 
-    public int getContractNR() {
-        return contractNR;
+    public String getStudentID() {
+        return studentID;
     }
 
-    public void setContractNR(int contractNR) {
-        this.contractNR = contractNR;
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
-    public Student getTenant() {
-        return tenant;
+    public String getLandlordID() {
+        return landlordID;
     }
 
-    public void setTenant(Student tenant) {
-        this.tenant = tenant;
+    public void setLandlordID(String landlordID) {
+        this.landlordID = landlordID;
     }
 
-    public Landlord getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Landlord owner) {
-        this.owner = owner;
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "studentID='" + studentID + '\'' +
+                ", landlordID='" + landlordID + '\'' +
+                '}';
     }
 }
 

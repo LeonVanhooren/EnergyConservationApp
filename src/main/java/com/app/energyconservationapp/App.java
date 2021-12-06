@@ -16,8 +16,6 @@ public class App {
     private ArrayList<Contract> contracts;
     private ArrayList<Room> rooms;
     private ArrayList<Lease> leases;
-    private ArrayList<StudentPassword> studentPasswords;
-    private ArrayList<LandlordPassword> landlordPasswords;
 
     public App() {
         this.students = new ArrayList<>();
@@ -27,8 +25,6 @@ public class App {
         this.contracts = new ArrayList<>();
         this.rooms = new ArrayList<>();
         this.leases = new ArrayList<>();
-        this.studentPasswords = new ArrayList<>();
-        this.landlordPasswords = new ArrayList<>();
 
 
     }
@@ -52,6 +48,8 @@ public class App {
         app.landlords = dbStream.databaseReadLandlord();
         app.rooms = dbStream.databaseReadRoom();
         app.leases = dbStream.databaseReadLease();
+        app.buildings = dbStream.databaseReadBuilding();
+
 
         System.out.println(app.students);
         System.out.println(app.landlords);
