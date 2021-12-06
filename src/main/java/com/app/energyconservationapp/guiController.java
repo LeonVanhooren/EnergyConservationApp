@@ -119,6 +119,18 @@ public class guiController {
 
     }
 
+    public void applianceMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("applianceMenu.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Appliance menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
     @FXML
     Label usernameLabel;
 

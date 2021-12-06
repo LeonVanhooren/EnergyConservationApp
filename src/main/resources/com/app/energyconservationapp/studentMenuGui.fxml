@@ -2,17 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="221.0" prefWidth="253.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.energyconservationapp.guiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="221.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.energyconservationapp.guiController">
    <children>
-      <Label layoutX="34.0" layoutY="77.0" text="Option 1:" />
-      <Label layoutX="34.0" layoutY="111.0" text="Option 2:" />
-      <Label layoutX="34.0" layoutY="149.0" text="Option 3:" />
-      <Button layoutX="137.0" layoutY="73.0" mnemonicParsing="false" text="1" />
-      <Button layoutX="137.0" layoutY="107.0" mnemonicParsing="false" text="2" />
-      <Button layoutX="137.0" layoutY="145.0" mnemonicParsing="false" text="3" />
-      <Label fx:id="usernameLabel" layoutX="113.0" layoutY="35.0" text="Label" />
-      <Button fx:id="signOutButton" layoutX="101.0" layoutY="182.0" mnemonicParsing="false" onAction="#backToSignIn" text="Sign out" />
+      <Label fx:id="usernameLabel" layoutX="127.0" layoutY="14.0" text="Label" />
+      <Button fx:id="signOutButton" layoutX="149.0" layoutY="181.0" mnemonicParsing="false" onAction="#backToSignIn" text="Sign out" />
+      <RadioButton layoutX="52.0" layoutY="93.0" mnemonicParsing="false" onAction="#applianceMenu" text="Adding, changing or deleting of appliances?" />
+      <Label layoutX="127.0" layoutY="42.0" text="Choose one option!" />
+      <RadioButton layoutX="52.0" layoutY="120.0" mnemonicParsing="false" text="Energy conservation menu?     " />
+      <RadioButton layoutX="52.0" layoutY="147.0" mnemonicParsing="false" text="Energy consumption/conservation report?" />
    </children>
 </AnchorPane>
