@@ -53,6 +53,32 @@ public class guiController {
         currentStudent = null;
     }
 
+    public void studentRegister(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registerStudentGUI.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Student register menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
+    public void landlordRegister(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registerLandlordGUI.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Landlord register menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
+
+
 
     public boolean checkStudent(String username, String password){
 
