@@ -37,6 +37,7 @@ public class guiController {
     private ArrayList<Appliance> appliances;
     private ArrayList<BelongsTo> belongsToArrayList;
     private ArrayList<Contains> containsArrayList;
+    private Student currentStudent;
 
     public guiController(){
         students = dbStream.databaseReadStudent();
@@ -49,17 +50,21 @@ public class guiController {
         containsArrayList = dbStream.databaseReadContains();
         contracts = dbStream.databaseReadContract();
         ownerships = dbStream.databaseReadOwnership();
+        currentStudent = null;
     }
 
 
     public boolean checkStudent(String username, String password){
+
         return true;
     }
 
     public boolean studentPresent(String studentID, String password){
         for(Student newStudent:students){
             if(newStudent.getStudentID().equals(studentID)&&newStudent.getPassword().equals(password)){
+                currentStudent = newStudent;
                 return true;
+
             }
         }
         return false;
@@ -83,7 +88,7 @@ public class guiController {
 
 
             guiController output = loader.getController();
-            output.setUsername(outputStudent[0]);
+            output.setUsername(currentStudent.getName());
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Student menu");
             scene = new Scene(root);
@@ -150,6 +155,9 @@ public class guiController {
     public void backToStudentMenu(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenu.fxml"));
         root = loader.load();
+
+        guiController output = loader.getController();
+        output.setUsername(currentStudent.getName());
 
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Student menu");
