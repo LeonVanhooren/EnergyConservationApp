@@ -124,7 +124,7 @@ public class dbTest {
         try {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Statement stm = connection.createStatement();
-            ResultSet rs = stm.executeQuery("select * from rents");
+            ResultSet rs = stm.executeQuery("select * from ownership");
             while (rs.next()) {
 
                 String landlordID = rs.getString("landlordID");
@@ -229,8 +229,11 @@ public class dbTest {
 
                 String landlordID = rs.getString("landlordID");
                 String studentID = rs.getString("studentID");
+                String contractNr = rs.getString("contractNr");
+                Date startDate = rs.getDate("startDate");
+                int contractDuration = rs.getInt("contractDuration");
 
-                Contract newContract = new Contract(studentID, landlordID);
+                Contract newContract = new Contract(studentID, landlordID, contractNr, startDate, contractDuration);
                 contracts.add(newContract);
 
             }
@@ -269,12 +272,6 @@ public class dbTest {
         }
         return buildings;
     }
-
-
-
-
-
-
 
 
 }

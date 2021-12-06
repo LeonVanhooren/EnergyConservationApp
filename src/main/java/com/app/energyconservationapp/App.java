@@ -5,6 +5,7 @@ package com.app.energyconservationapp;
 import Objects.*;
 import databaseTest.dbTest;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -16,6 +17,9 @@ public class App {
     private ArrayList<Contract> contracts;
     private ArrayList<Room> rooms;
     private ArrayList<Lease> leases;
+    private ArrayList<Appliance> appliances;
+    private ArrayList<BelongsTo> belongsToArrayList;
+    private ArrayList<Contains> containsArrayList;
 
     public App() {
         this.students = new ArrayList<>();
@@ -25,7 +29,9 @@ public class App {
         this.contracts = new ArrayList<>();
         this.rooms = new ArrayList<>();
         this.leases = new ArrayList<>();
-
+        this.appliances = new ArrayList<>();
+        this.belongsToArrayList = new ArrayList<>();
+        this.containsArrayList = new ArrayList<>();
 
     }
 
@@ -49,12 +55,25 @@ public class App {
         app.rooms = dbStream.databaseReadRoom();
         app.leases = dbStream.databaseReadLease();
         app.buildings = dbStream.databaseReadBuilding();
+        app.appliances = dbStream.databaseReadAppliance();
+        app.belongsToArrayList = dbStream.databaseReadBelongsTo();
+        app.containsArrayList = dbStream.databaseReadContains();
+        app.contracts = dbStream.databaseReadContract();
+        app.ownerships = dbStream.databaseReadOwnership();
+
+
 
 
         System.out.println(app.students);
         System.out.println(app.landlords);
         System.out.println(app.rooms);
         System.out.println(app.leases);
+        System.out.println(app.buildings);
+        System.out.println(app.appliances);
+        System.out.println(app.belongsToArrayList);
+        System.out.println(app.containsArrayList);
+        System.out.println(app.contracts);
+        System.out.println(app.ownerships);
 
     }
 
