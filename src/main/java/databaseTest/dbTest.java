@@ -21,7 +21,6 @@ public class dbTest {
             System.out.println("Connected to the database");
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery("select * from student");
-            System.out.println("studentID\t\tfirstname\t\tlastname\t\temail");
             while (rs.next()) {
 
                 String id = rs.getString("studentID");

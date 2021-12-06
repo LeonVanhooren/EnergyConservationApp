@@ -4,12 +4,18 @@ package com.app.energyconservationapp;
 
 import Objects.*;
 import databaseTest.dbTest;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class App {
+public class App extends Application {
     private ArrayList<Student> students;
     private ArrayList<Landlord> landlords;
     private ArrayList<Building> buildings;
@@ -35,20 +41,28 @@ public class App {
 
     }
 
-   public boolean checkStudent(String username, String password){
+    public boolean checkStudent(String username, String password){
         return true;
-   }
+    }
 
 
 
     //We moeten een exception throwen als meerdere vakjes gekozen worden bij de methodes of een manier vinden om te programmeren dat er maar 1 vakje gekozen kan worden!!
 
 
+    @Override
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("loginGUI.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Login screen");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
     public static void main(String[] args) {
 
-        dbTest dbStream = new dbTest();
+        /*dbTest dbStream = new dbTest();
         App app = new App();
         app.students = dbStream.databaseReadStudent();
         app.landlords = dbStream.databaseReadLandlord();
@@ -74,6 +88,8 @@ public class App {
         System.out.println(app.containsArrayList);
         System.out.println(app.contracts);
         System.out.println(app.ownerships);
+*/
+        launch();
 
     }
 

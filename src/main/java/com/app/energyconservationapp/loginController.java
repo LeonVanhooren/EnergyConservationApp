@@ -6,14 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.w3c.dom.events.Event;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class loginController{
@@ -45,13 +42,11 @@ public class loginController{
                 switchToSceneStudentMenu(actionEvent);
             }
             else{
-                studentSignIn(actionEvent);
             }
 
 
-
-
-       /* FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
+            /*
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
         root = loader.load();
 
 
