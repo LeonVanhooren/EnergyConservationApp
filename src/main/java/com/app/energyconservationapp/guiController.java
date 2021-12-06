@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,7 +26,7 @@ public class guiController {
     private PasswordField studentPasswordInput, landlordPasswordInput;
 
     @FXML
-    private Button studentSignIn, landlordSignIn;
+    private Button studentSignIn, landlordSignIn, signOutButton;
 
     dbTest dbStream = new dbTest();
     private ArrayList<Student> students;
@@ -83,29 +84,18 @@ public class guiController {
             root = loader.load();
 
 
-            studentMenuController output = loader.getController();
+            guiController output = loader.getController();
             output.setUsername(outputStudent[0]);
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Student menu");
             scene = new Scene(root);
             stage.setScene(scene);
 
-       /* System.out.println(outputStudent[0]+" "+outputStudent[1]);
-        System.out.println(students);
-        System.out.println(landlords);
-        System.out.println(rooms);
-        System.out.println(leases);
-        System.out.println(buildings);
-        System.out.println(appliances);
-        System.out.println(belongsToArrayList);
-        System.out.println(containsArrayList);
-        System.out.println(contracts);
-        System.out.println(ownerships);*/
-
         }
         else{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
             root = loader.load();
+
 
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Error");
@@ -126,6 +116,13 @@ public class guiController {
         System.out.println(containsArrayList);
         System.out.println(contracts);
         System.out.println(ownerships);*/
+
+    }
+
+    @FXML
+    Label usernameLabel;
+
+    public void setUsername(String username){            usernameLabel.setText("Welcome: "+username);
 
     }
 
