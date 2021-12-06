@@ -16,11 +16,6 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 public class studentMenuController {
 
-    @FXML
-    Label usernameLabel;
 
-    public void setUsername(String username){            usernameLabel.setText("Welcome: "+username);
-
-    }
 
 }
