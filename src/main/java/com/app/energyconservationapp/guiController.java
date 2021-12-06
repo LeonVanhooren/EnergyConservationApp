@@ -90,6 +90,29 @@ public class guiController {
             scene = new Scene(root);
             stage.setScene(scene);
 
+       /* System.out.println(outputStudent[0]+" "+outputStudent[1]);
+        System.out.println(students);
+        System.out.println(landlords);
+        System.out.println(rooms);
+        System.out.println(leases);
+        System.out.println(buildings);
+        System.out.println(appliances);
+        System.out.println(belongsToArrayList);
+        System.out.println(containsArrayList);
+        System.out.println(contracts);
+        System.out.println(ownerships);*/
+
+        }
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
+            root = loader.load();
+
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Error");
+            scene = new Scene(root);
+            stage.setScene(scene);
+
+
         }
 
         /*System.out.println(outputStudent[0]+" "+outputStudent[1]);
@@ -103,6 +126,17 @@ public class guiController {
         System.out.println(containsArrayList);
         System.out.println(contracts);
         System.out.println(ownerships);*/
+
+    }
+
+    public void backToSignIn(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginGUI.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Sign in menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
