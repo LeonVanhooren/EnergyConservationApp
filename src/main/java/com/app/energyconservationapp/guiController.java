@@ -149,6 +149,32 @@ public class guiController {
 
     }
 
+    public void backToStudentMenu(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenu.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Student menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+    @FXML
+    private TextField  QRCodeTF;
+    private TextField applianceIDTF;
+    private TextField consumptionTF;
+    private TextField efficiencyTF;
+
+    public void addAppliance(ActionEvent event){
+        String applianceID, consumption, efficiency, QRCode;
+
+        applianceID = applianceIDTF.getText();
+        consumption = consumptionTF.getText();
+        efficiency = efficiencyTF.getText();
+        QRCode = QRCodeTF.getText();
+
+    }
+
     public void landlordSignIn(){
 
     }
