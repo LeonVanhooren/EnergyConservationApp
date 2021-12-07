@@ -17,8 +17,8 @@
                   <Label layoutX="104.0" layoutY="152.0" />
                   <Label layoutX="94.0" layoutY="70.0" text="StudentID:" />
                   <TextField layoutX="162.0" layoutY="66.0" />
-                  <Button layoutX="315.0" layoutY="212.0" mnemonicParsing="false" onAction="#backToLandlordMenu" text="Submit" />
-                  <Button layoutX="143.0" layoutY="212.0" mnemonicParsing="false" onAction="#backToLandlordmenu" text="Back" />
+                  <Button layoutX="315.0" layoutY="212.0" mnemonicParsing="false" text="Submit" />
+                  <Button layoutX="143.0" layoutY="212.0" mnemonicParsing="false" text="Back" />
                   <Label layoutX="99.0" layoutY="115.0" text="RoomID:" />
                   <TextField layoutX="163.0" layoutY="111.0" />
                </children></AnchorPane>
@@ -35,8 +35,8 @@
                   <TextField layoutX="186.0" layoutY="109.0" />
                   <Label layoutX="85.0" layoutY="156.0" text="RoomID:" />
                   <TextField layoutX="186.0" layoutY="152.0" />
-                  <Button layoutX="335.0" layoutY="215.0" mnemonicParsing="false" onAction="#BackToLandlordMenu" text="Submit" />
-                  <Button layoutX="160.0" layoutY="215.0" mnemonicParsing="false" onAction="#BackToLandlordMenu" text="Back" />
+                  <Button layoutX="335.0" layoutY="215.0" mnemonicParsing="false" text="Submit" />
+                  <Button layoutX="160.0" layoutY="215.0" mnemonicParsing="false" text="Back" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -49,8 +49,8 @@
                   <TextField layoutX="178.0" layoutY="76.0" />
                   <Label layoutX="85.0" layoutY="128.0" text="RoomID:" />
                   <TextField layoutX="179.0" layoutY="124.0" />
-                  <Button layoutX="329.0" layoutY="200.0" mnemonicParsing="false" onAction="#BackToLandlordMenu" text="Submit" />
-                  <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#BackToLandlordMenu" prefHeight="26.0" prefWidth="41.0" text="Back" />
+                  <Button layoutX="329.0" layoutY="200.0" mnemonicParsing="false" text="Submit" />
+                  <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="41.0" text="Back" />
                </children></AnchorPane>
         </content>
       </Tab>
