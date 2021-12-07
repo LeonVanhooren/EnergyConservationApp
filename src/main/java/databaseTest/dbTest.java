@@ -18,7 +18,6 @@ public class dbTest {
 
         try {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Connected to the database");
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery("select * from student");
             while (rs.next()) {
