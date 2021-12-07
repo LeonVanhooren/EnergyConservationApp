@@ -201,7 +201,7 @@ public class guiController {
 
                 dbStream.addLandlordToDatabase(newLandlord);
 
-                landlordIDLabel.setText("Your landlord ID is "+landlordID+" remember this well!");
+                landlordIDLabel.setText("Your landlord ID is "+landlordIDstring+" remember this well!");
                 registerInfoLandlord.setText("The landlord is successfully registered!");
             }
 
@@ -434,7 +434,8 @@ public class guiController {
     @FXML
     private Label usernameLabelLandlord;
 
-    public void setUsernameLandlord(String username){            usernameLabelLandlord.setText("Welcome: "+username);
+    public void setUsernameLandlord(String username){
+        usernameLabelLandlord.setText("Welcome: "+username);
 
     }
 
@@ -448,6 +449,8 @@ public class guiController {
         }
         return false;
     }
+
+
 
 
 }
