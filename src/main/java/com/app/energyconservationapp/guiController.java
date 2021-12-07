@@ -52,6 +52,24 @@ public class guiController {
         ownerships = dbStream.databaseReadOwnership();
         currentStudent = null;
     }
+    @FXML
+    private TextField firstNameStudent;
+    @FXML
+    private TextField lastNameStudent;
+    @FXML
+    private TextField emailStudent;
+    @FXML
+    private TextField passwordStudent1;
+    @FXML
+    private TextField passwordStudent2;
+
+    @FXML
+    private Label registerInfoStudent;
+    @FXML
+    private Label studentNumber;
+    @FXML
+    private Label passwordMatching;
+
 
     public void studentRegister(ActionEvent event) throws IOException{
 
@@ -65,6 +83,56 @@ public class guiController {
 
     }
 
+    public void studentRegisterButton(){
+        String firstName, lastName, email, password1, password2;
+        firstName = firstNameStudent.getText();
+        lastName = lastNameStudent.getText();
+        email = emailStudent.getText();
+        password1 = passwordStudent1.getText();
+        password2 = passwordStudent2.getText();
+
+        if(studentPresentRegister(firstName, lastName, email)==false){
+
+            if(!password1.equals(password2)){
+                passwordStudent1.setText("");
+                passwordStudent2.setText("");
+            }
+            else{
+
+
+                int studentNR = (int)Math.floor(Math.random()*(999999-910000+1)+910000);
+                String studentNRstring = "01"+studentNR;
+
+                Student newStudent = new Student(firstName, lastName, email, studentNRstring, password1);
+
+                dbStream.addStudentToDatabase(newStudent);
+
+                studentNumber.setText("Your studentnr. is "+studentNRstring+" remember this well!");
+                registerInfoStudent.setText("The student is successfully registered!");
+            }
+
+        }
+        else{
+            registerInfoStudent.setText("The database already contains this student!");
+        }
+
+        if(password1.equals(password2)){
+            passwordMatching.setText("The passwords match!");
+        }
+        else{passwordMatching.setText("The passwords do not match!");}
+
+    }
+
+    public boolean studentPresentRegister(String firstname, String lastName, String email){
+        for(Student newStudent:students){
+            if(newStudent.getFirstName().equals(firstname)&&newStudent.getLastName().equals(lastName)&&newStudent.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void landlordRegister(ActionEvent event) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("registerLandlordGUI.fxml"));
@@ -75,15 +143,11 @@ public class guiController {
         scene = new Scene(root);
         stage.setScene(scene);
 
+
+
     }
 
 
-
-
-    public boolean checkStudent(String username, String password){
-
-        return true;
-    }
 
     public boolean studentPresent(String studentID, String password){
         for(Student newStudent:students){

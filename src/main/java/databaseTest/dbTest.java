@@ -180,6 +180,20 @@ public class dbTest {
         }
     }
 
+    public void addStudentToDatabase(Student student){
+        try {
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Statement stm = connection.createStatement();
+            String query = "INSERT INTO student "+"VALUES('"+student.getStudentID()+"', '"+student.getFirstName()+"', '"+student.getLastName()+"', '"+student.getEmail()+"', '"+student.getPassword()+"')";
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.execute();
+
+        } catch (SQLException e) {
+            System.out.println("FAIL");
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<BelongsTo> databaseReadBelongsTo(){
         ArrayList<BelongsTo> belongsToArrayList = new ArrayList<>();
 
