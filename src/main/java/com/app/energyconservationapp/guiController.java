@@ -264,6 +264,7 @@ public class guiController {
 
         if(studentPresent(outputStudent[0],outputStudent[1] )==true){
             System.out.println("zit in de database");
+
             loginInfoStudent.setText("This matches an account in the DB!");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
