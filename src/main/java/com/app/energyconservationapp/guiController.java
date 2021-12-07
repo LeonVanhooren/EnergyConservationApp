@@ -39,6 +39,7 @@ public class guiController {
     private ArrayList<BelongsTo> belongsToArrayList;
     private ArrayList<Contains> containsArrayList;
     private Student currentStudent;
+    private Landlord currentLandlord;
 
     public guiController(){
         students = dbStream.databaseReadStudent();
@@ -300,6 +301,7 @@ public class guiController {
 
     }
 
+
     @FXML
     Label usernameLabel;
 
@@ -379,7 +381,53 @@ public class guiController {
 
     }
 
-    public void landlordSignIn(){
+    public void landlordSignIn(ActionEvent event) throws IOException{
+        String[] outputStudent = new String[2];
+
+        outputStudent[0] = studentUsernameInput.getText();
+        outputStudent[1] = studentPasswordInput.getText();
+
+        if(studentPresent(outputStudent[0],outputStudent[1] )==true){
+            System.out.println("zit in de database");
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
+            root = loader.load();
+
+
+            guiController output = loader.getController();
+            output.setUsername(currentStudent.getName());
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Student menu");
+            scene = new Scene(root);
+            stage.setScene(scene);
+
+        }
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
+            root = loader.load();
+
+
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Error");
+            scene = new Scene(root);
+            stage.setScene(scene);
+
+
+        }
+
 
     }
+
+    public boolean landlordPresent(String landlordID, String password){
+        for(Landlord newLandlord:landlords){
+            if(newLandlord.getLandlordID().equals(landlordID)&&newLandlord.getPassWord().equals(password)){
+                currentLandlord = newLandlord;
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+
 }
