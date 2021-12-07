@@ -169,10 +169,10 @@ public class dbTest {
     public void addApplianceToDatabase(Appliance appliance){
         try {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
-            String query ="insert into appliances (null, '"+appliance.getApplianceID()+"', '"+appliance.getConsumption()+"', '"+appliance.getEfficiency()+"', '"+appliance.getQRCode()+"')";
-            PreparedStatement stm = connection.prepareStatement(query);
-
+            Statement stm = connection.createStatement();
+            String query = "INSERT INTO appliances "+"VALUES('"+appliance.getApplianceID()+"', '"+appliance.getConsumption()+"', '"+appliance.getEfficiency()+"', '"+appliance.getQRCode()+"')";
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.execute();
 
         } catch (SQLException e) {
             System.out.println("FAIL");
