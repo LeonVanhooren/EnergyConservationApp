@@ -335,6 +335,41 @@ public class guiController {
         stage.setScene(scene);
 
     }
+    public void studentRoomMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddStudentRoom.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
+    public void contactPersonMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddContactPerson.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+    public void ReportMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddContactPerson.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
 
     @FXML
     Label usernameLabel;
