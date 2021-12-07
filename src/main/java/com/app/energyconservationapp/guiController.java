@@ -39,6 +39,7 @@ public class guiController {
     private ArrayList<BelongsTo> belongsToArrayList;
     private ArrayList<Contains> containsArrayList;
     private Student currentStudent;
+    private Landlord currentLandlord;
 
     public guiController(){
         students = dbStream.databaseReadStudent();
@@ -252,6 +253,9 @@ public class guiController {
     private Parent root;
     private Scene scene;
 
+    @FXML
+    private Label loginInfoStudent;
+
     public void studentSignIn(ActionEvent event) throws IOException {
         String[] outputStudent = new String[2];
 
@@ -261,12 +265,15 @@ public class guiController {
         if(studentPresent(outputStudent[0],outputStudent[1] )==true){
             System.out.println("zit in de database");
 
+            loginInfoStudent.setText("This matches an account in the DB!");
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
             root = loader.load();
 
 
             guiController output = loader.getController();
             output.setUsername(currentStudent.getName());
+
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Student menu");
             scene = new Scene(root);
@@ -274,14 +281,7 @@ public class guiController {
 
         }
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
-            root = loader.load();
-
-
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Error");
-            scene = new Scene(root);
-            stage.setScene(scene);
+            loginInfoStudent.setText("This doesn't match an account in the DB!");
 
 
         }
@@ -299,6 +299,19 @@ public class guiController {
         stage.setScene(scene);
 
     }
+
+    public void landlordMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenu.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
 
     @FXML
     Label usernameLabel;
@@ -379,7 +392,62 @@ public class guiController {
 
     }
 
-    public void landlordSignIn(){
+    @FXML
+    private TextField landlordUsernameInput;
+    @FXML
+    private PasswordField landlordPasswordInput;
+    @FXML
+    private Label loginInfoLandlord;
+
+
+    public void landlordSignIn(ActionEvent event) throws IOException{
+        String[] outputLandlord = new String[2];
+
+        outputLandlord[0] = landlordUsernameInput.getText();
+        outputLandlord[1] = landlordPasswordInput.getText();
+
+        if(landlordPresent(outputLandlord[0],outputLandlord[1] )==true){
+            System.out.println("zit in de database");
+            loginInfoLandlord.setText("This matches an account in the DB!");
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenu.fxml"));
+            root = loader.load();
+
+
+            guiController output = loader.getController();
+            output.setUsernameLandlord(currentLandlord.getName());
+
+            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Landlord menu");
+            scene = new Scene(root);
+            stage.setScene(scene);
+
+        }
+        else{
+
+            loginInfoLandlord.setText("This doesn't match an account in the DB!");
+        }
+
 
     }
+
+    @FXML
+    private Label usernameLabelLandlord;
+
+    public void setUsernameLandlord(String username){            usernameLabelLandlord.setText("Welcome: "+username);
+
+    }
+
+    public boolean landlordPresent(String landlordID, String password){
+        for(Landlord newLandlord:landlords){
+            if(newLandlord.getLandlordID().equals(landlordID)&&newLandlord.getPassWord().equals(password)){
+                currentLandlord = newLandlord;
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+
 }
