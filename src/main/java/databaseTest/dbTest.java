@@ -194,6 +194,20 @@ public class dbTest {
         }
     }
 
+    public void addLandlordToDatabase(Landlord landlord){
+        try {
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Statement stm = connection.createStatement();
+            String query = "INSERT INTO landlord "+"VALUES('"+landlord.getLandlordID()+"', '"+landlord.getFirstName()+"', '"+landlord.getLastName()+"', '"+landlord.getEmail()+"', '"+landlord.getTelephoneNR()+"', '"+landlord.getPassWord()+"')";
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.execute();
+
+        } catch (SQLException e) {
+            System.out.println("FAIL");
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<BelongsTo> databaseReadBelongsTo(){
         ArrayList<BelongsTo> belongsToArrayList = new ArrayList<>();
 
