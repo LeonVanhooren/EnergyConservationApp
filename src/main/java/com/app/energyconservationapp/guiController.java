@@ -273,6 +273,7 @@ public class guiController {
 
             guiController output = loader.getController();
             output.setUsername(currentStudent.getName());
+
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("Student menu");
             scene = new Scene(root);
@@ -409,7 +410,7 @@ public class guiController {
             System.out.println("zit in de database");
             loginInfoLandlord.setText("This matches an account in the DB!");
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenuGui.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenu.fxml"));
             root = loader.load();
 
 
