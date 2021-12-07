@@ -253,6 +253,9 @@ public class guiController {
     private Parent root;
     private Scene scene;
 
+    @FXML
+    private Label loginInfoStudent;
+
     public void studentSignIn(ActionEvent event) throws IOException {
         String[] outputStudent = new String[2];
 
@@ -261,6 +264,7 @@ public class guiController {
 
         if(studentPresent(outputStudent[0],outputStudent[1] )==true){
             System.out.println("zit in de database");
+            loginInfoStudent.setText("This matches an account in the DB!");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
             root = loader.load();
@@ -275,14 +279,7 @@ public class guiController {
 
         }
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
-            root = loader.load();
-
-
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Error");
-            scene = new Scene(root);
-            stage.setScene(scene);
+            loginInfoStudent.setText("This doesn't match an account in the DB!");
 
 
         }
@@ -381,40 +378,49 @@ public class guiController {
 
     }
 
+    @FXML
+    private TextField landlordUsernameInput;
+    @FXML
+    private PasswordField landlordPasswordInput;
+    @FXML
+    private Label loginInfoLandlord;
+
+
     public void landlordSignIn(ActionEvent event) throws IOException{
-        String[] outputStudent = new String[2];
+        String[] outputLandlord = new String[2];
 
-        outputStudent[0] = studentUsernameInput.getText();
-        outputStudent[1] = studentPasswordInput.getText();
+        outputLandlord[0] = landlordUsernameInput.getText();
+        outputLandlord[1] = landlordPasswordInput.getText();
 
-        if(studentPresent(outputStudent[0],outputStudent[1] )==true){
+        if(landlordPresent(outputLandlord[0],outputLandlord[1] )==true){
             System.out.println("zit in de database");
+            loginInfoLandlord.setText("This matches an account in the DB!");
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenuGui.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenuGui.fxml"));
             root = loader.load();
 
 
             guiController output = loader.getController();
-            output.setUsername(currentStudent.getName());
+            output.setUsernameLandlord(currentLandlord.getName());
+
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Student menu");
+            stage.setTitle("Landlord menu");
             scene = new Scene(root);
             stage.setScene(scene);
 
         }
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNotInDB.fxml"));
-            root = loader.load();
 
-
-            stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Error");
-            scene = new Scene(root);
-            stage.setScene(scene);
-
-
+            loginInfoLandlord.setText("This doesn't match an account in the DB!");
         }
 
+
+    }
+
+    @FXML
+    private Label usernameLabelLandlord;
+
+    public void setUsernameLandlord(String username){            usernameLabelLandlord.setText("Welcome: "+username);
 
     }
 
