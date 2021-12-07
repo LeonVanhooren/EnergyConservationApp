@@ -313,6 +313,29 @@ public class guiController {
 
     }
 
+    public void ConservationMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("energyConservationActions.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
+    public void monthlyConsumptionMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("registerEnergyConsumption.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
 
     @FXML
     Label usernameLabel;
