@@ -301,6 +301,18 @@ public class guiController {
 
     }
 
+    public void landlordMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("landlordMenu.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("landlord menu");
+        scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+
 
     @FXML
     Label usernameLabel;
