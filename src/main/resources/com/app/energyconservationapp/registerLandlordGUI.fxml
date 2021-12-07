@@ -22,11 +22,11 @@
         <Label layoutX="27.0" layoutY="324.0" text="Password:" />
         <Label fx:id="landlordIDLabel" layoutX="31.0" layoutY="77.0" text="Your landlord ID is ... remember this well!" />
         <Button layoutX="34.0" layoutY="372.0" mnemonicParsing="false" onAction="#backToSignIn" text="Sign in" />
-        <Button layoutX="110.0" layoutY="372.0" mnemonicParsing="false" onAction="#landlordRegister" text="Register" />
+        <Button layoutX="110.0" layoutY="372.0" mnemonicParsing="false" onAction="#landlordRegisterButton" text="Register" />
       <TextField fx:id="telephoneNrLandlord" layoutX="95.0" layoutY="233.0" />
       <Label layoutX="16.0" layoutY="237.0" text="Telephone Nr:" />
       <Button layoutX="189.0" layoutY="372.0" mnemonicParsing="false" onAction="#clearLandlordInput" text="Empty" />
-      <Label layoutX="96.0" layoutY="303.0" textFill="RED">
+      <Label fx:id="passwordMatchingLandlord" layoutX="96.0" layoutY="303.0" textFill="RED">
          <font>
             <Font size="10.0" />
          </font>
